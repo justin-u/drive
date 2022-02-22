@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://humber.tscn" type="PackedScene" id=1]
+[ext_resource path="res://d7rt0r4-9cb59f66-61db-4a70-b62b-fe4e8d1b44ae.jpeg" type="Texture" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 50, 1, 50 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 100, 2, 100 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[node name="world" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114892, -1.26407, -0.116901 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="humber" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625628, 1.35933, -0.264724 )
+mass = 1020.41
